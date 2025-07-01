@@ -8,17 +8,19 @@
   <!-- Sidebar -->
   <aside class="sidebar" [class.hidden]="!sidebarOpen">
     <h1 class="logo">💼 ElkinDev</h1>
-    <nav>
-      <ul>
-        <li><a routerLink="/" routerLinkActive="active">🏠 Inicio</a></li>
-        <li><a routerLink="/about" routerLinkActive="active">🧑‍💻 Sobre mí</a></li>
-        <li><a routerLink="/projects" routerLinkActive="active">🛠️ Proyectos</a></li>
-        <li><a routerLink="/recruiters" routerLinkActive="active">📋 Reclutadores</a></li>
-        <li><a routerLink="/contact" routerLinkActive="active">✉️ Contacto</a></li>
-      </ul>
-    </nav>
+
+  <nav>
+  <ul>
+    <li><a (click)="toggleInicio()" [class.active]="esInicioActivo">🏠 Inicio</a></li>
+    <li><a routerLink="/about" routerLinkActive="active">🧑‍💻 Sobre mí</a></li>
+    <li><a routerLink="/projects" routerLinkActive="active">🛠️ Proyectos</a></li>
+    <li><a routerLink="/recruiters" routerLinkActive="active">📋 Reclutadores</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active">✉️ Contacto</a></li>
+  </ul>
+</nav>
+
     <div class="contact-buttons">
-      <a href="https://wa.me/573001112233" target="_blank" class="btn whatsapp">WhatsApp</a>
+      <a href="https://wa.me/573043623712" target="_blank" class="btn whatsapp">WhatsApp</a>
       <a href="https://t.me/elkindev" target="_blank" class="btn telegram">Telegram</a>
       <a href="mailto:elkin@zoho.com" class="btn email">Correo</a>
     </div>
