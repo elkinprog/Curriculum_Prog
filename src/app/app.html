@@ -1,5 +1,6 @@
 <!-- app.component.html -->
 <div class="app-container" [class.sidebar-collapsed]="!sidebarOpen">
+
   <!-- Botón hamburguesa -->
   <button class="menu-toggle" (click)="toggleSidebar()">
     ☰
@@ -11,11 +12,11 @@
 
   <nav>
   <ul>
-    <li><a (click)="toggleInicio()" [class.active]="esInicioActivo">🏠 Inicio</a></li>
-    <li><a routerLink="/about" routerLinkActive="active">🧑‍💻 Sobre mí</a></li>
-    <li><a routerLink="/projects" routerLinkActive="active">🛠️ Proyectos</a></li>
-    <li><a routerLink="/recruiters" routerLinkActive="active">📋 Reclutadores</a></li>
-    <li><a routerLink="/contact" routerLinkActive="active">✉️ Contacto</a></li>
+    <li><a (click)="toggleInicio()" [class.active]="esInicioActivo">Inicio</a></li>
+    <li><a routerLink="/about" routerLinkActive="active">Sobre mí</a></li>
+    <li><a routerLink="/projects" routerLinkActive="active">Proyectos</a></li>
+    <li><a routerLink="/recruiters" routerLinkActive="active">Reclutadores</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active">Contacto</a></li>
   </ul>
 </nav>
 

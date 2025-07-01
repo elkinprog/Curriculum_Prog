@@ -2,14 +2,20 @@
   display: flex;
   height: 100vh;
   font-family: 'Segoe UI', sans-serif;
-  transition: all 0.3s ease;
+  background-color: #e2e2e2;
   overflow: hidden;
-  position: relative;
-  background-color: #e2e2e2; // Gris medio suave
-  transition: margin-left 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
-  &.sidebar-collapsed .sidebar {
-    transform: translateX(-100%);
+  &.sidebar-collapsed {
+    .sidebar {
+      width: 0 !important;
+      padding: 0 !important;
+      overflow: hidden;
+    }
+
+    .main-content {
+      margin-left: 0 !important;
+    }
   }
 }
 
@@ -23,25 +29,19 @@
   padding: 0.7rem 1rem;
   border-radius: 8px;
   font-size: 1.2rem;
-  z-index: 1000;
+  z-index: 1001;
   cursor: pointer;
 }
 
-// Sidebar corregido
 .sidebar {
   width: 260px;
+  transition: width 0.3s ease-in-out;
   background-color: #1e1e1e;
   color: #f1f1f1;
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s ease-in-out;
-  position: fixed; // <- Importante
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 999;
 
   .logo {
     font-size: 1.5rem;
@@ -107,17 +107,11 @@
   }
 }
 
-// Main content se mueve con margen
 .main-content {
-  margin-left: 260px;
-  flex: 1;
+  flex: 1 1 auto;
   padding: 2rem;
   overflow-y: auto;
-  background-color: #e2e2e2; // Gris medio suave
-  transition: margin-left 0.3s ease-in-out;
+  background-color: #e2e2e2;
+  transition: all 0.3s ease-in-out;
 }
 
-a.active {
-  font-weight: bold;
-  color: #007bff;
-}
