@@ -1,5 +1,5 @@
 <!-- Navbar fija arriba con altura personalizada -->
-<nav class="navbar navbar-dark bg-dark" style="height: 60px;">
+<nav class="navbar navbar-dark bg-dark" style="height: 50px;">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button"
             data-bs-toggle="collapse"
@@ -12,56 +12,58 @@
 <!-- Contenedor principal ajustado al 100vh menos navbar -->
 <div class="d-flex" style="height: calc(100vh - 50px); overflow: hidden;">
 
-
   <!-- Menú lateral con ancho personalizado -->
   <div class="collapse collapse-horizontal show bg-dark h-100" id="verticalMenu">
     <div class="p-3 d-flex flex-column h-100" style="width: 240px;">
       <div>
         <h5 class="text-white mb-3">Menú de navegación</h5>
-    <ul class="nav flex-column">
+        <ul class="nav flex-column">
 
-  <li class="nav-item">
-  <a class="btn btn-dark text-start text-white w-100 mb-1"
-     (click)="toggleInicio()"
-     [class.active]="esInicioActivo"
-     [class.text-dark]="esInicioActivo">
-    Inicio
-  </a>
-  </li>
+          <li class="nav-item">
+            <a class="btn btn-dark text-start text-white w-100 mb-1"
+               (click)="toggleInicio(); cerrarSlide()"
+               [class.active]="esInicioActivo"
+               [class.text-dark]="esInicioActivo"
+               data-bs-toggle="collapse" data-bs-target="#verticalMenu">
+              Inicio
+            </a>
+          </li>
 
+          <li class="nav-item">
+            <a class="btn btn-dark text-start text-white w-100 mb-1"
+               routerLink="/about" routerLinkActive="bg-primary text-white"
+               data-bs-toggle="collapse" data-bs-target="#verticalMenu">
+              Sobre mí
+            </a>
+          </li>
 
-  <li class="nav-item">
-    <a class="btn btn-dark text-start text-white w-100 mb-1"
-       routerLink="/about" routerLinkActive="bg-primary text-white">
-      Sobre mí
-    </a>
-  </li>
+          <li class="nav-item">
+            <a class="btn btn-dark text-start text-white w-100 mb-1"
+               routerLink="/projects" routerLinkActive="bg-primary text-white"
+               data-bs-toggle="collapse" data-bs-target="#verticalMenu">
+              Proyectos
+            </a>
+          </li>
 
-  <li class="nav-item">
-    <a class="btn btn-dark text-start text-white w-100 mb-1"
-       routerLink="/projects" routerLinkActive="bg-primary text-white">
-      Proyectos
-    </a>
-  </li>
+          <li class="nav-item">
+            <a class="btn btn-dark text-start text-white w-100 mb-1"
+               (click)="toggleReclutador(); cerrarSlide()"
+               [class.active]="esreclutadorActivo"
+               [class.text-dark]="esreclutadorActivo"
+               data-bs-toggle="collapse" data-bs-target="#verticalMenu">
+              Reclutadores
+            </a>
+          </li>
 
-  <li class="nav-item">
-  <a class="btn btn-dark text-start text-white w-100 mb-1"
-     (click)="toggleReclutador()"
-     [class.active]="esreclutadorActivo"
-     [class.text-dark]="esreclutadorActivo">
-    Reclutadores
-  </a>
-  </li>
+          <li class="nav-item">
+            <a class="btn btn-dark text-start text-white w-100 mb-1"
+               routerLink="/contact" routerLinkActive="bg-primary text-white"
+               data-bs-toggle="collapse" data-bs-target="#verticalMenu">
+              Contacto
+            </a>
+          </li>
 
-  
-  <li class="nav-item">
-    <a class="btn btn-dark text-start text-white w-100 mb-1"
-       routerLink="/contact" routerLinkActive="bg-primary text-white">
-      Contacto
-    </a>
-  </li>
-</ul>
-
+        </ul>
         <hr class="bg-light">
       </div>
 
@@ -79,6 +81,5 @@
     <div class="flex-grow-1 overflow-auto">
       <router-outlet></router-outlet>
     </div>
-
   </main>
 </div>

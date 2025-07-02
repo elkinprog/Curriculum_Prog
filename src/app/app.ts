@@ -12,6 +12,19 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
 export class App {
 
 
+   bootstrap: any;
+
+
+  cerrarSlide() {
+  const menu = document.getElementById('verticalMenu');
+  if (menu && menu.classList.contains('show')) {
+    const collapse = new this.bootstrap.Collapse(menu, { toggle: true });
+    collapse.hide();
+  }
+}
+
+
+
   protected title = 'curriculum';
 
  sidebarOpen = true;
