@@ -1,34 +1,78 @@
-<!-- app.component.html -->
-<div class="app-container" [class.sidebar-collapsed]="!sidebarOpen">
-
-  <!-- Botón hamburguesa -->
-  <button class="menu-toggle" (click)="toggleSidebar()">
-    ☰
-  </button>
-
-  <!-- Sidebar -->
-  <aside class="sidebar" [class.hidden]="!sidebarOpen">
-    <h1 class="logo">💼 ElkinDev</h1>
-
-  <nav>
-  <ul>
-    <li><a (click)="toggleInicio()" [class.active]="esInicioActivo">Inicio</a></li>
-    <li><a routerLink="/about" routerLinkActive="active">Sobre mí</a></li>
-    <li><a routerLink="/projects" routerLinkActive="active">Proyectos</a></li>
-    <li><a routerLink="/recruiters" routerLinkActive="active">Reclutadores</a></li>
-    <li><a routerLink="/contact" routerLinkActive="active">Contacto</a></li>
-  </ul>
+<!-- Navbar fija arriba con altura personalizada -->
+<nav class="navbar navbar-dark bg-dark" style="height: 60px;">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#verticalMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
 </nav>
 
-    <div class="contact-buttons">
-      <a href="https://wa.me/573043623712" target="_blank" class="btn whatsapp">WhatsApp</a>
-      <a href="https://t.me/elkindev" target="_blank" class="btn telegram">Telegram</a>
-      <a href="mailto:elkin@zoho.com" class="btn email">Correo</a>
-    </div>
-  </aside>
+<!-- Contenedor principal ajustado al 100vh menos navbar -->
+<div class="d-flex" style="height: calc(100vh - 50px); overflow: hidden;">
 
-  <!-- Contenido principal -->
-  <main class="main-content">
-    <router-outlet></router-outlet>
+
+  <!-- Menú lateral con ancho personalizado -->
+  <div class="collapse collapse-horizontal show bg-dark h-100" id="verticalMenu">
+    <div class="p-3 d-flex flex-column h-100" style="width: 240px;">
+      <div>
+        <h5 class="text-white mb-3">Menú de navegación</h5>
+    <ul class="nav flex-column">
+
+  <li class="nav-item">
+  <a class="btn btn-dark text-start text-white w-100 mb-1"
+     (click)="toggleInicio()"
+     [class.active]="esInicioActivo"
+     [class.text-dark]="esInicioActivo">
+    Inicio
+  </a>
+  </li>
+
+
+  <li class="nav-item">
+    <a class="btn btn-dark text-start text-white w-100 mb-1"
+       routerLink="/about" routerLinkActive="bg-primary text-white">
+      Sobre mí
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="btn btn-dark text-start text-white w-100 mb-1"
+       routerLink="/projects" routerLinkActive="bg-primary text-white">
+      Proyectos
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="btn btn-dark text-start text-white w-100 mb-1"
+       routerLink="/recruiters" routerLinkActive="bg-primary text-white">
+      Reclutadores
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="btn btn-dark text-start text-white w-100 mb-1"
+       routerLink="/contact" routerLinkActive="bg-primary text-white">
+      Contacto
+    </a>
+  </li>
+</ul>
+
+        <hr class="bg-light">
+      </div>
+
+      <!-- Botones de contacto pegados abajo -->
+      <div class="d-grid gap-2 mt-auto">
+        <a href="https://wa.me/573043623712" class="btn btn-success btn-sm" target="_blank">WhatsApp</a>
+        <a href="https://t.me/elkindev" class="btn btn-primary btn-sm" target="_blank">Telegram</a>
+        <a href="mailto:elkin@zoho.com" class="btn btn-danger btn-sm">Correo</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenido principal con altura completa -->
+  <main class="main-content flex-grow-1 p-1 d-flex flex-column" style="min-height: 100%;">
+    <div class="flex-grow-1 overflow-auto">
+      <router-outlet></router-outlet>
+    </div>
+
   </main>
 </div>
