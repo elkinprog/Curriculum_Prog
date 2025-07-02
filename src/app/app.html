@@ -36,18 +36,24 @@
       Sobre mí
     </a>
   </li>
+
   <li class="nav-item">
     <a class="btn btn-dark text-start text-white w-100 mb-1"
        routerLink="/projects" routerLinkActive="bg-primary text-white">
       Proyectos
     </a>
   </li>
+
   <li class="nav-item">
-    <a class="btn btn-dark text-start text-white w-100 mb-1"
-       routerLink="/recruiters" routerLinkActive="bg-primary text-white">
-      Reclutadores
-    </a>
+  <a class="btn btn-dark text-start text-white w-100 mb-1"
+     (click)="toggleReclutador()"
+     [class.active]="esreclutadorActivo"
+     [class.text-dark]="esreclutadorActivo">
+    Reclutadores
+  </a>
   </li>
+
+  
   <li class="nav-item">
     <a class="btn btn-dark text-start text-white w-100 mb-1"
        routerLink="/contact" routerLinkActive="bg-primary text-white">

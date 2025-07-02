@@ -19,11 +19,15 @@ export class App {
     this.sidebarOpen = !this.sidebarOpen;
   }
 
-  esInicioActivo = false;
+  esInicioActivo      = false;
+  esreclutadorActivo  = false;
 
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
+
       this.esInicioActivo = this.router.url === '/inicio';
+      this.esreclutadorActivo= this.router.url === '/reclutador'
+
     });
   }
 
@@ -34,6 +38,16 @@ export class App {
     } else {
       // Mostrar: navega a /inicio
       this.router.navigateByUrl('/inicio');
+    }
+  }
+
+  toggleReclutador() {
+    if (this.esreclutadorActivo) {
+      // Ocultar: navega a ruta vacía
+      this.router.navigateByUrl('/');
+    } else {
+      // Mostrar: navega a /inicio
+      this.router.navigateByUrl('/reclutador');
     }
   }
 
