@@ -1,19 +1,34 @@
-<div class="page-wrapper d-flex flex-column h-100">
-  <section class="hero flex-grow-1">
-    <div class="hero-content">
-      <h1>Hola, soy <span>Elkin Rojas</span></h1>
-      <p>Desarrollador Full Stack con enfoque en soluciones modernas para negocios digitales.</p>
-      <div class="action-buttons">
-        <a href="#projects" class="btn">Ver proyectos</a>
-        <a href="assets/ElkinRojas_CV.pdf" class="btn alt" target="_blank">Descargar CV</a>
+<div class="d-flex flex-column min-vh-100 bg-light">
+
+  <!-- Card con altura extendida (~5cm aprox) -->
+  <div class="card mx-auto my-5" style="max-width: 720px; min-height: 600px; background-color: lab(95.52% 0.18 -0.49);">
+
+    <!-- Subir imagen ovalada -->
+    <div class="d-flex justify-content-center mt-4">
+      <label for="fotoCandidato" class="d-flex justify-content-center align-items-center border rounded-circle"
+             style="width: 150px; height: 150px; background-color: #dee2e6; cursor: pointer;">
+        <span class="text-muted small text-center px-2">Foto perfil</span>
+        <input type="file" id="fotoCandidato" accept="image/*" hidden>
+      </label>
+    </div>
+
+    <!-- Contenido principal + contacto en mismo card-body -->
+    <div class="card-body text-center px-4 pt-4">
+      <h1 class="mb-3">Hola, soy <span class="fw-bold">Elkin Rojas</span></h1>
+      <p class="mb-4">Desarrollador Full Stack con enfoque en soluciones modernas para negocios digitales.</p>
+
+      <div class="d-flex justify-content-center gap-3 flex-wrap mb-4">
+        <a href="assets/ElkinRojas_CV.pdf" class="btn btn-outline-secondary btn-sm" target="_blank">Descargar CV</a>
+      </div>
+
+      <!-- Contacto dentro del card-body -->
+      <h5 class="fw-bold mb-3">Contáctame</h5>
+      <div class="d-flex justify-content-center flex-wrap gap-2">
+        <a href="https://wa.me/573043623712" class="btn btn-success btn-sm" target="_blank">WhatsApp</a>
+        <a href="https://t.me/elkindev" class="btn btn-primary btn-sm" target="_blank">Telegram</a>
       </div>
     </div>
-  </section>
 
-<footer class="bg-secondary text-light text-center small py-3">
-  © 2025 Elkinprog
-</footer>
-
-
+  </div>
 </div>
 

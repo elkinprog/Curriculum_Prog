@@ -29,13 +29,16 @@
             </a>
           </li>
 
-          <li class="nav-item">
+            <li class="nav-item">
             <a class="btn btn-dark text-start text-white w-100 mb-1"
-               routerLink="/about" routerLinkActive="bg-primary text-white"
+               (click)="toggleSobreMi(); cerrarSlide()"
+               [class.active]="essobreMi"
+               [class.text-dark]="essobreMi"
                data-bs-toggle="collapse" data-bs-target="#verticalMenu">
               Sobre mí
             </a>
           </li>
+
 
           <li class="nav-item">
             <a class="btn btn-dark text-start text-white w-100 mb-1"
@@ -59,7 +62,7 @@
             <a class="btn btn-dark text-start text-white w-100 mb-1"
                routerLink="/contact" routerLinkActive="bg-primary text-white"
                data-bs-toggle="collapse" data-bs-target="#verticalMenu">
-              Contacto
+              Administrador
             </a>
           </li>
 
@@ -67,12 +70,7 @@
         <hr class="bg-light">
       </div>
 
-      <!-- Botones de contacto pegados abajo -->
-      <div class="d-grid gap-2 mt-auto">
-        <a href="https://wa.me/573043623712" class="btn btn-success btn-sm" target="_blank">WhatsApp</a>
-        <a href="https://t.me/elkindev" class="btn btn-primary btn-sm" target="_blank">Telegram</a>
-        <a href="mailto:elkin@zoho.com" class="btn btn-danger btn-sm">Correo</a>
-      </div>
+
     </div>
   </div>
 

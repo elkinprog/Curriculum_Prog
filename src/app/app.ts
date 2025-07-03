@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -33,14 +32,16 @@ export class App {
   }
 
   esInicioActivo      = false;
+  essobreMi           = false;
   esreclutadorActivo  = false;
+
 
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
 
       this.esInicioActivo = this.router.url === '/inicio';
+      this.essobreMi= this.router.url === '/sobremi'
       this.esreclutadorActivo= this.router.url === '/reclutador'
-
     });
   }
 
@@ -51,6 +52,16 @@ export class App {
     } else {
       // Mostrar: navega a /inicio
       this.router.navigateByUrl('/inicio');
+    }
+  }
+
+  toggleSobreMi() {
+    if (this.essobreMi) {
+      // Ocultar: navega a ruta vacía
+      this.router.navigateByUrl('/');
+    } else {
+      // Mostrar: navega a /inicio
+      this.router.navigateByUrl('/sobremi');
     }
   }
 
