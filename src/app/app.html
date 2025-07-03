@@ -58,13 +58,18 @@
             </a>
           </li>
 
-          <li class="nav-item">
+
+           <li class="nav-item">
             <a class="btn btn-dark text-start text-white w-100 mb-1"
-               routerLink="/contact" routerLinkActive="bg-primary text-white"
+               (click)="toggleAdministrador(); cerrarSlide()"
+               [class.active]="esAdministrador"
+               [class.text-dark]="esAdministrador"
                data-bs-toggle="collapse" data-bs-target="#verticalMenu">
               Administrador
             </a>
           </li>
+
+
 
         </ul>
         <hr class="bg-light">

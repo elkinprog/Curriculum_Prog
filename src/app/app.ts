@@ -22,8 +22,6 @@ export class App {
   }
 }
 
-
-
   protected title = 'curriculum';
 
  sidebarOpen = true;
@@ -34,6 +32,8 @@ export class App {
   esInicioActivo      = false;
   essobreMi           = false;
   esreclutadorActivo  = false;
+  esAdministrador     = false;
+  esAuth              = false;
 
 
   constructor(private router: Router) {
@@ -42,6 +42,8 @@ export class App {
       this.esInicioActivo = this.router.url === '/inicio';
       this.essobreMi= this.router.url === '/sobremi'
       this.esreclutadorActivo= this.router.url === '/reclutador'
+      this.esreclutadorActivo= this.router.url === '/administrador'
+      this.esAuth= this.router.url === '/auth'
     });
   }
 
@@ -75,7 +77,15 @@ export class App {
     }
   }
 
-
-
+  toggleAdministrador() {
+    if (this.esAdministrador) {
+      // Ocultar: navega a ruta vacía
+      this.router.navigateByUrl('/');
+    } else {
+      // Mostrar: navega a /inicio
+    // this.router.navigateByUrl('/administrador');
+    this.router.navigateByUrl('/auth');
+    }
+  }
 
 }
