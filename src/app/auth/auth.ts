@@ -10,7 +10,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './auth.scss'
 })
 export class Auth {
-  @Output() volver = new EventEmitter<void>();  // 🔁 Evento para cerrar el componente desde el padre
+
+  @Output() volver = new EventEmitter<void>();
 
   isRegistering = false;
 
@@ -27,7 +28,6 @@ export class Auth {
 
   login() {
     console.log('🔐 Login:', this.loginData);
-    // Aquí podrías emitir otro evento para loguear automáticamente
   }
 
   crearCuenta() {
@@ -35,7 +35,8 @@ export class Auth {
   }
 
   volverAlLogin() {
-    this.isRegistering = false;
+    this.isRegistering = false; // 👈 Esto lo agregas también para volver al login
+    this.volver.emit();
   }
 
   register() {
@@ -45,7 +46,6 @@ export class Auth {
     }
 
     console.log('✅ Registrado:', this.registerData);
-    // Simula éxito y cierra el formulario
-    this.volver.emit();
+    this.volverAlLogin(); // 👈 después de registrarse, regresa al login
   }
 }

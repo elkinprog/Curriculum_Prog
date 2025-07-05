@@ -38,53 +38,43 @@ export class App {
 
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
-
-      this.esInicioActivo = this.router.url === '/inicio';
-      this.essobreMi= this.router.url === '/sobremi'
-      this.esreclutadorActivo= this.router.url === '/reclutador'
-      this.esreclutadorActivo= this.router.url === '/administrador'
-      this.esAuth= this.router.url === '/auth'
+      this.esInicioActivo     = this.router.url === '/inicio';
+      this.essobreMi          = this.router.url === '/sobremi'
+      this.esreclutadorActivo = this.router.url === '/reclutador'
+      this.esreclutadorActivo = this.router.url === '/administrador'
     });
   }
 
   toggleInicio() {
     if (this.esInicioActivo) {
-      // Ocultar: navega a ruta vacía
       this.router.navigateByUrl('/');
     } else {
-      // Mostrar: navega a /inicio
       this.router.navigateByUrl('/inicio');
     }
   }
 
   toggleSobreMi() {
     if (this.essobreMi) {
-      // Ocultar: navega a ruta vacía
       this.router.navigateByUrl('/');
     } else {
-      // Mostrar: navega a /inicio
       this.router.navigateByUrl('/sobremi');
     }
   }
 
   toggleReclutador() {
     if (this.esreclutadorActivo) {
-      // Ocultar: navega a ruta vacía
       this.router.navigateByUrl('/');
     } else {
-      // Mostrar: navega a /inicio
       this.router.navigateByUrl('/reclutador');
     }
   }
 
   toggleAdministrador() {
     if (this.esAdministrador) {
-      // Ocultar: navega a ruta vacía
       this.router.navigateByUrl('/');
     } else {
-      // Mostrar: navega a /inicio
-    // this.router.navigateByUrl('/administrador');
-    this.router.navigateByUrl('/auth');
+    this.router.navigateByUrl('/administrador');
+    // this.router.navigateByUrl('/auth');
     }
   }
 

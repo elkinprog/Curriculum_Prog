@@ -16,7 +16,6 @@ export class Administrador {
   constructor(private router: Router) {}
 
 
-
   [x: string]: any;
 
    reclutadores = [
@@ -35,16 +34,17 @@ export class Administrador {
   adminName = '';
 
   login() {
-
-    this.isLoggedIn = true;
+    this.isLoggedIn      = true;
     this.mostrarRegistro = false;
   }
 
   crearCuenta() {
     this.mostrarRegistro = true;
-    // this.router.navigateByUrl('/auth');
-
   }
+
+  cerrarRegistro() {
+  this.mostrarRegistro = false; // ✅ El hijo puede cerrar con un evento
+}
 
   onFileSelected(event: any) {
     console.log('Archivo seleccionado:', event.target.files[0]);
@@ -61,6 +61,13 @@ export class Administrador {
   eliminarRegistro(i: number) {
     this.reclutadores.splice(i, 1);
   }
+
+  logout() {
+  this.isLoggedIn = false;
+  this.mostrarRegistro = false;
+  this.router.navigate(['/inicio']); // ✅ Redirige al componente "inicio"
+}
+
 }
 
 
