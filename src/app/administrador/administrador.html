@@ -4,7 +4,7 @@
 
     <!-- 🧾 FORMULARIO REGISTRO -->
     <div *ngIf="mostrarRegistro && !isLoggedIn" class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
-      <app-auth (volver)="cerrarRegistro()"></app-auth>
+      <app-login-component (volver)="cerrarRegistro()"></app-login-component>
     </div>
 
     <!-- 🔐 FORMULARIO LOGIN -->

@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { Auth } from "../auth/auth";
+import { LoginComponent } from "../login-component/login-component";
 
 @Component({
   selector: 'app-administrador',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterModule, Auth],
+  imports: [FormsModule, CommonModule, RouterModule,LoginComponent],
   templateUrl: './administrador.html',
   styleUrl: './administrador.scss'
 })

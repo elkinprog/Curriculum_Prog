@@ -74,7 +74,6 @@ export class App {
       this.router.navigateByUrl('/');
     } else {
     this.router.navigateByUrl('/administrador');
-    // this.router.navigateByUrl('/auth');
     }
   }
 

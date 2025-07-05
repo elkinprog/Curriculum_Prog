@@ -1,17 +1,17 @@
-import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-auth',
+  selector: 'app-login-component',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './auth.html',
-  styleUrl: './auth.scss'
+  templateUrl: './login-component.html',
+  styleUrl: './login-component.scss'
 })
-export class Auth {
+export class LoginComponent {
 
-  @Output() volver = new EventEmitter<void>();
+   @Output() volver = new EventEmitter<void>();
 
   isRegistering = false;
 
@@ -48,4 +48,5 @@ export class Auth {
     console.log('✅ Registrado:', this.registerData);
     this.volverAlLogin(); // 👈 después de registrarse, regresa al login
   }
+
 }
