@@ -7,14 +7,10 @@ export class AuthService {
   constructor(private auth: Auth, private firestore: Firestore) {}
 
   register(email: string, password: string, nombre: string) {
-    return createUserWithEmailAndPassword(this.auth, email, password).then((userCredential: { user: { uid: any; }; }) => {
-      const uid = userCredential.user.uid;
-      const userRef = doc(this.firestore, 'usuarios', uid);
-      return setDoc(userRef, {
-        uid,
-        email,
-        nombre,
-        rol: 'reclutador'
+    return createUserWithEmailAndPassword(this.auth, email, password).then(user => {
+      const uid = user.user.uid;
+      return setDoc(doc(this.firestore, 'usuarios', uid), {
+        uid, email, nombre, rol: 'reclutador'
       });
     });
   }
@@ -27,3 +23,4 @@ export class AuthService {
     return signOut(this.auth);
   }
 }
+

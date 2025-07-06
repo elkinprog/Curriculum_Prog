@@ -1,52 +1,66 @@
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 
 @Component({
   selector: 'app-login-component',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './login-component.html',
-  styleUrl: './login-component.scss'
+  styleUrl: './login-component.scss',
 })
 export class LoginComponent {
 
-   @Output() volver = new EventEmitter<void>();
+  isRegister = false;
+  email = '';
+  password = '';
+  confirm = '';
+  nombre = '';
 
-  isRegistering = false;
+  constructor(public auth: AuthService, private router: Router) {}
 
-  loginData = {
-    username: '',
-    password: ''
-  };
+  toggleMode() {
+    this.isRegister = !this.isRegister;
+  }
 
-  registerData = {
-    username: '',
-    password: '',
-    confirmPassword: ''
-  };
+  submit() {
+    if (this.isRegister) {
+      if (this.password !== this.confirm) {
+        return alert('❌ Las contraseñas no coinciden');
+      }
+
+      this.auth.register(this.email, this.password, this.nombre)
+        .then(() => {
+          alert('✅ Cuenta creada');
+          this.router.navigate(['/administrador']);
+        })
+        .catch(err => alert('❌ ' + err.message));
+    } else {
+      this.login();
+    }
+  }
 
   login() {
-    console.log('🔐 Login:', this.loginData);
+    this.auth.login(this.email, this.password)
+      .then(() => {
+        alert('✅ Login exitoso');
+        this.router.navigate(['/administrador']);
+      })
+      .catch(err => alert('❌ ' + err.message));
   }
 
-  crearCuenta() {
-    this.isRegistering = true;
-  }
-
-  volverAlLogin() {
-    this.isRegistering = false; // 👈 Esto lo agregas también para volver al login
-    this.volver.emit();
-  }
-
-  register() {
-    if (this.registerData.password !== this.registerData.confirmPassword) {
-      alert('❌ Las contraseñas no coinciden');
+  resetPassword() {
+    if (!this.email) {
+      alert('📧 Ingresa tu correo para recuperar la contraseña');
       return;
     }
 
-    console.log('✅ Registrado:', this.registerData);
-    this.volverAlLogin(); // 👈 después de registrarse, regresa al login
+    const auth = getAuth();
+    sendPasswordResetEmail(auth, this.email)
+      .then(() => alert('📨 Se envió un enlace de recuperación a tu correo'))
+      .catch(err => alert('❌ ' + err.message));
   }
-
 }
